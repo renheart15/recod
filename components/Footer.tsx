@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-primary text-primary-foreground py-12 md:py-16">
+    <footer className="w-full bg-primary text-primary-foreground py-12 md:py-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
@@ -23,6 +23,11 @@ export function Footer() {
               <li>
                 <a href="/program#program" className="hover:underline transition-colors duration-200">
                   Program
+                </a>
+              </li>
+              <li>
+                <a href="/guideline#guideline" className="hover:underline transition-colors duration-200">
+                  Guideline
                 </a>
               </li>
               <li>
@@ -66,6 +71,11 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-primary-foreground/80">
               © {currentYear} Cebu Technological University. All rights reserved.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-primary-foreground/80">
+              Developed by Renheart R. Alfanta
             </p>
           </div>
         </div>
