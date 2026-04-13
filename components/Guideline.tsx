@@ -29,10 +29,28 @@ const GUIDELINES: Guideline[] = [
   },
 ];
 
+/** Detect mobile/tablet browsers that can't render PDFs inline */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () =>
+      setIsMobile(
+        /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+          navigator.userAgent
+        ) || window.innerWidth < 768
+      );
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return isMobile;
+}
+
 export default function GuidelinesPage() {
   const [activeTab, setActiveTab] = useState<GuidelineKey>('research');
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [overlayKey, setOverlayKey] = useState<GuidelineKey>('research');
+  const isMobile = useIsMobile();
 
   const active = GUIDELINES.find((g) => g.key === activeTab)!;
   const overlayGuideline = GUIDELINES.find((g) => g.key === overlayKey)!;
@@ -54,7 +72,9 @@ export default function GuidelinesPage() {
 
   useEffect(() => {
     document.body.style.overflow = overlayOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [overlayOpen]);
 
   return (
@@ -87,7 +107,6 @@ export default function GuidelinesPage() {
           max-width: 960px; margin: 0 auto;
           display: flex; align-items: center; gap: 1.5rem;
         }
-          
         .g-hero-text h1 {
           font-family: 'Cinzel', serif;
           font-size: clamp(1.1rem, 3vw, 1.9rem);
@@ -100,8 +119,7 @@ export default function GuidelinesPage() {
           font-size: .9rem;
           margin-top: .35rem;
         }
-
-        .g-hero-text{
+        .g-hero-text {
           justify-content: center;
           display: flex;
           align-content: flex-start;
@@ -111,8 +129,10 @@ export default function GuidelinesPage() {
         /* ── TABS ── */
         .g-tabs-wrap {
           max-width: 960px;
+          width: 100%;
           margin: 2rem auto 0;
-          padding: 0 1.5rem;
+          padding: 0 1rem;
+          box-sizing: border-box;
         }
         .g-tab-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
         .g-tab-btn {
@@ -140,9 +160,11 @@ export default function GuidelinesPage() {
         /* ── PANEL ── */
         .g-panel-wrap {
           max-width: 960px;
+          width: 100%;
           margin: 0 auto;
-          padding: 0 1.5rem 3rem;
+          padding: 0 1rem 3rem;
           flex: 1;
+          box-sizing: border-box;
         }
         .g-panel {
           background: #fff;
@@ -152,8 +174,8 @@ export default function GuidelinesPage() {
           box-shadow: 0 4px 24px rgba(92,45,0,.10);
           display: flex;
           flex-direction: column;
-          width: 800px;
-          height: 990px;
+          width: 100%;          /* ← was hardcoded 800px */
+          box-sizing: border-box;
         }
         .g-panel-header {
           background: linear-gradient(90deg, #5c2d00, #8B4513);
@@ -170,7 +192,6 @@ export default function GuidelinesPage() {
           font-size: 1rem;
           letter-spacing: .05em;
         }
-          
         .g-panel-actions { display: flex; gap: .6rem; flex-shrink: 0; }
 
         /* ── BUTTONS ── */
@@ -209,15 +230,48 @@ export default function GuidelinesPage() {
         }
         .g-btn-close:hover { background: rgba(200,0,0,.35); border-color: #f00; }
 
-        /* ── PDF EMBED ── */
+        /* ── PDF EMBED (desktop) ── */
         .g-pdf-container {
           width: 100%;
-          height: 990px;
+          height: calc(100vh - 220px); /* viewport-relative, not fixed px */
+          min-height: 400px;
           background: #f5f0e8;
         }
-        .g-pdf-container iframe {
+        .g-pdf-container iframe,
+        .g-pdf-container object {
           width: 100%; height: 100%; border: none; display: block;
         }
+
+        /* ── MOBILE PDF FALLBACK ── */
+        .g-pdf-mobile-fallback {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.25rem;
+          padding: 2.5rem 1.5rem;
+          background: #fef9e7;
+          text-align: center;
+          min-height: 280px;
+        }
+        .g-pdf-mobile-fallback .g-pdf-icon {
+          font-size: 3.5rem;
+          line-height: 1;
+        }
+        .g-pdf-mobile-fallback p {
+          color: #5c2d00;
+          font-size: .9rem;
+          max-width: 280px;
+          line-height: 1.6;
+        }
+        .g-pdf-mobile-fallback .g-btn-open {
+          background: #5c2d00;
+          color: #fde68a;
+          border-color: #5c2d00;
+          font-size: .85rem;
+          padding: .65rem 1.4rem;
+        }
+        .g-pdf-mobile-fallback .g-btn-open:hover { background: #3d1a00; }
 
         /* ── OVERLAY ── */
         .g-overlay {
@@ -246,7 +300,22 @@ export default function GuidelinesPage() {
         }
         .g-overlay-actions { display: flex; gap: .6rem; }
         .g-overlay-body { flex: 1; overflow: hidden; }
-        .g-overlay-body iframe { width: 100%; height: 100%; border: none; display: block; }
+        .g-overlay-body iframe,
+        .g-overlay-body object { width: 100%; height: 100%; border: none; display: block; }
+
+        /* ── OVERLAY MOBILE FALLBACK ── */
+        .g-overlay-mobile-fallback {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.25rem;
+          padding: 2rem 1.5rem;
+          text-align: center;
+        }
+        .g-overlay-mobile-fallback .g-pdf-icon { font-size: 4rem; line-height: 1; }
+        .g-overlay-mobile-fallback p { color: #fde68a; font-size: .9rem; max-width: 280px; line-height: 1.6; }
 
         /* ── FOOTER ── */
         .g-footer {
@@ -259,9 +328,16 @@ export default function GuidelinesPage() {
           letter-spacing: .05em;
         }
 
-        @media (max-width: 600px) {
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+          .g-hero { padding: 1.5rem 1rem; }
           .g-hero-inner { flex-direction: column; text-align: center; }
-          .g-pdf-container { height: 480px; }
+          .g-tabs-wrap { margin-top: 1.25rem; padding: 0 .75rem; }
+          .g-tab-btn { font-size: .72rem; padding: .55rem 1rem; }
+          .g-panel-wrap { padding: 0 .75rem 2rem; }
+          .g-panel-header { padding: .75rem 1rem; }
+          .g-panel-header h2 { font-size: .85rem; }
+          .g-pdf-container { height: auto; min-height: unset; }
         }
       `}</style>
 
@@ -302,30 +378,73 @@ export default function GuidelinesPage() {
             <div className="g-panel-header">
               <h2>{active.title}</h2>
               <div className="g-panel-actions">
-                <button
-                  className="g-btn g-btn-fullscreen"
-                  onClick={() => openOverlay(active.key)}
+                {!isMobile && (
+                  <button
+                    className="g-btn g-btn-fullscreen"
+                    onClick={() => openOverlay(active.key)}
+                  >
+                    ⛶ Full Screen
+                  </button>
+                )}
+                <a
+                  className="g-btn g-btn-download"
+                  href={active.pdfPath}
+                  download={active.downloadName}
                 >
-                  ⛶ Full Screen
-                </button>
+                  ⬇ Download
+                </a>
               </div>
             </div>
-            <div className="g-pdf-container">
-              <iframe
-                key={active.key}
-                src={`${active.pdfPath}#toolbar=1&navpanes=0`}
-                title={active.title}
-              />
-            </div>
+
+            {/* PDF viewer: iframe on desktop, fallback card on mobile */}
+            {isMobile ? (
+              <div className="g-pdf-mobile-fallback">
+                <div className="g-pdf-icon">📄</div>
+                <p>
+                  PDF preview isn't supported on mobile browsers. Open the file
+                  directly or download it to read offline.
+                </p>
+                <a
+                  className="g-btn g-btn-open"
+                  href={active.pdfPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  📂 Open PDF
+                </a>
+                <a
+                  className="g-btn g-btn-download"
+                  href={active.pdfPath}
+                  download={active.downloadName}
+                >
+                  ⬇ Download PDF
+                </a>
+              </div>
+            ) : (
+              <div className="g-pdf-container">
+                <iframe
+                  key={active.key}
+                  src={`${active.pdfPath}#toolbar=1&navpanes=0`}
+                  title={active.title}
+                />
+              </div>
+            )}
           </div>
         </div>
 
-        {/* ── FULLSCREEN OVERLAY ── */}
-        {overlayOpen && (
+        {/* ── FULLSCREEN OVERLAY (desktop only) ── */}
+        {overlayOpen && !isMobile && (
           <div className="g-overlay" role="dialog" aria-modal="true" aria-label={overlayGuideline.title}>
             <div className="g-overlay-header">
               <h3>{overlayGuideline.title}</h3>
               <div className="g-overlay-actions">
+                <a
+                  className="g-btn g-btn-download"
+                  href={overlayGuideline.pdfPath}
+                  download={overlayGuideline.downloadName}
+                >
+                  ⬇ Download
+                </a>
                 <button className="g-btn g-btn-close" onClick={closeOverlay}>
                   ✕ Close
                 </button>

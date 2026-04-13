@@ -72,11 +72,12 @@ export function Footer() {
             <p className="text-sm text-primary-foreground/80">
               © {currentYear} Cebu Technological University. All rights reserved.
             </p>
-          </div>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-primary-foreground/80">
-              Developed by Renheart R. Alfanta
-            </p>
+            <div className="text-sm text-primary-foreground/80 text-center md:text-right">
+              <p>Developed by Renheart R. Alfanta</p>
+              <p>Multimedia Officer, FSTLP</p>
+              <p>alfantarabanes143@gmail.com</p>
+              <p>09943428659</p>
+            </div>
           </div>
         </div>
       </div>
