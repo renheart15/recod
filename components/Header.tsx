@@ -40,7 +40,9 @@ export function Header() {
               </a>
             ))}
             <a
-              href="/notFound"
+              href="https://us06web.zoom.us/j/81608816350?pwd=gjAuHdjvjXQ6LEbCCQonLqUyqUlvop.1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium hover:shadow-md transition-all duration-200 hover:brightness-110"
             >
               Join Zoom
@@ -75,7 +77,9 @@ export function Header() {
               </a>
             ))}
             <a
-              href="#zoom"
+              href="https://us06web.zoom.us/j/81608816350?pwd=gjAuHdjvjXQ6LEbCCQonLqUyqUlvop.1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 mt-2 bg-secondary text-secondary-foreground rounded-lg font-medium text-center hover:brightness-110 transition-all duration-200"
             >
               Join Zoom

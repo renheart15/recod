@@ -21,22 +21,22 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#program" className="hover:underline transition-colors duration-200">
+                <a href="/program#program" className="hover:underline transition-colors duration-200">
                   Program
                 </a>
               </li>
               <li>
-                <a href="#speakers" className="hover:underline transition-colors duration-200">
+                <a href="/speaker#speakers" className="hover:underline transition-colors duration-200">
                   Speakers
                 </a>
               </li>
               <li>
-                <a href="#panels" className="hover:underline transition-colors duration-200">
+                <a href="/panel#panels" className="hover:underline transition-colors duration-200">
                   Panel Members
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline transition-colors duration-200">
+                <a href="/notFound" className="hover:underline transition-colors duration-200">
                   Evaluation
                 </a>
               </li>
@@ -54,12 +54,8 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <a href="mailto:fstlpctuburan@gmail.com" className="hover:underline transition-colors duration-200">
-                  fstlpctuburan@gmail.com
+                  fstlpctutuburan@gmail.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>(032) 555-1234</span>
               </li>
             </ul>
           </div>
