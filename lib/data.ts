@@ -80,7 +80,7 @@ export const clustersByType: Record<PresentationType, Cluster[]> = {
           name: 'DR. MA. KRISTINA O. PALER',
           title: 'Professor II',
           affiliation: 'University of San Carlos, Department of Biology',
-          image: '/images/no-profile/user.jpg',
+          image: '/images/panels/DR. MA. KRISTINA O. PALER.jpg',
         },
         {
           id: 'online-member-5',
@@ -165,7 +165,7 @@ export const clustersByType: Record<PresentationType, Cluster[]> = {
           name: 'DR. ANALIZA B. CALLES',
           title: 'Professor IV',
           affiliation: 'Biliran Province State University',
-          image: '/images/no-profile/user.jpg',
+          image: '/images/panels/DR. ANALIZA B. CALLES.png',
         },
         {
           id: 'product-member-5',
