@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Panels', href: '/panel#panels' },
   { label: 'Guideline', href: '/guideline#guideline' },
   { label: 'Program', href: '/program#program' },
-  { label: 'Evaluation', href: '/notFound' },
+  { label: 'Evaluation', href: 'https://docs.google.com/forms/d/e/1FAIpQLSfZGor6RM6emYG7QCrzRKQumL2O6KYy8t--qnaeyRyWdmRPbw/viewform' },
 ];
 
 export function Header() {

@@ -41,7 +41,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/notFound" className="hover:underline transition-colors duration-200">
+                <a href="{ label: 'Evaluation', href: 'https://docs.google.com/forms/d/e/1FAIpQLSfZGor6RM6emYG7QCrzRKQumL2O6KYy8t--qnaeyRyWdmRPbw/viewform' }," className="hover:underline transition-colors duration-200">
                   Evaluation
                 </a>
               </li>
