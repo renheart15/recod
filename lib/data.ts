@@ -21,10 +21,12 @@ export interface Cluster {
   members: PanelMember[];
 }
 
+export type PresentationType = 'online' | 'product';
+
 export const speakers: Speaker[] = [
   {
     id: '1',
-    name: 'Dr. Lynnette Matea Sayson Camello',
+    name: 'DR. LYNNETTE MATEA SAYSON CAMELLO',
     title: 'Professor II',
     affiliation: 'Cebu Technological University',
     topic: 'Innovative Educational Technologies for Sustainable Academic Development',
@@ -40,86 +42,176 @@ export const speakers: Speaker[] = [
   },
 ];
 
-export const clusters: Cluster[] = [
-  {
-    id: 'cluster-1',
-    name: 'Food Security and Agriculture',
-    members: [
-      {
-        id: 'member-1',
-        name: 'DR. ZANDRO O. PEREZ',
-        title: 'Professor, Science Department',
-        affiliation: 'Cebu Technological University',
-        image: '/images/no-profile/user.jpg',
-      },
-      {
-        id: 'member-2',
-        name: 'PROF. JULIAN O. CUMAD',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/no-profile/user.jpg',
-      },
-      {
-        id: 'member-3',
-        name: 'DR. MONIFEL G. CALDERON',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/panels/DR. MONIFEL G. CALDERON.jpg',
-      },
-    ],
-  },
-  {
-    id: 'cluster-2',
-    name: 'Engineering and Technology Innovation',
-    members: [
-      {
-        id: 'member-4',
-        name: 'DR. MA. KRISTINA O. PALER',
-        title: 'Professor II',
-        affiliation: 'University of San Carlos, Department of Biology',
-        image: '/images/no-profile/user.jpg',
-      },
-      {
-        id: 'member-5',
-        name: 'ENGR. ANDREW WEB ALCORCON',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/no-profile/user.jpg',
-      },
-      {
-        id: 'member-6',
-        name: 'DR. MARK PAUL LIM',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/panels/DR. MARK PAUL LIM.jpg',
-      },
-    ],
-  },
-  {
-    id: 'cluster-3',
-    name: 'Education, Social Science and Tourism Management',
-    members: [
-      {
-        id: 'member-7',
-        name: 'DR. PRIMO B. ARANAS, JR.',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/panels/DR. PRIMO B. ARANAS, JR..jpg',
-      },
-      {
-        id: 'member-8',
-        name: 'DR. JUDE CHARREL B. PAEZ',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/no-profile/user.jpg',
-      },
-      {
-        id: 'member-9',
-        name: 'DR. ANGEN MAY F. CHARCOS',
-        title: 'Faculty',
-        affiliation: 'Cebu Technological University',
-        image: '/images/no-profile/user.jpg',
-      },
-    ],
-  },
-];
+export const clustersByType: Record<PresentationType, Cluster[]> = {
+  online: [
+    {
+      id: 'online-cluster-1',
+      name: 'FOOD SECURITY AND AGRICULTURE',
+      members: [
+        {
+          id: 'online-member-1',
+          name: 'DR. ZANDRO O. PEREZ',
+          title: 'NSTP Chair, Faculty President',
+          affiliation: 'Cebu Technological University - Barili Campus',
+          image: '/images/panels/Dr. Zandro O. Perez .jpg',
+        },
+        {
+          id: 'online-member-2',
+          name: 'PROF. JULIAN O. CUMAD',
+          title: 'Instructor I',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/PROF. JULIAN O. CUMAD.jpg',
+        },
+        {
+          id: 'online-member-3',
+          name: 'DR. MONIFEL G. CALDERON',
+          title: 'Assistant Professor III',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. MONIFEL G. CALDERON.jpg',
+        },
+      ],
+    },
+    {
+      id: 'online-cluster-2',
+      name: 'ENGINEERING AND TECHNOLOGY INNOVATION',
+      members: [
+        {
+          id: 'online-member-4',
+          name: 'DR. MA. KRISTINA O. PALER',
+          title: 'Professor II',
+          affiliation: 'University of San Carlos, Department of Biology',
+          image: '/images/panels/DR. MA. KRISTINA O. PALER.jpg',
+        },
+        {
+          id: 'online-member-5',
+          name: 'ENGR. ANDREW WEB ALCORCON',
+          title: 'Instructor I',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/ENGR. ANDREW WEB ALCORCON.jpg',
+        },
+        {
+          id: 'online-member-6',
+          name: 'DR. MARK PAUL LIM',
+          title: 'Assistant Professor II',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. MARK PAUL LIM.jpg',
+        },
+      ],
+    },
+    {
+      id: 'online-cluster-3',
+      name: 'EDUCATION, SOCIAL SCIENCE AND TOURISM MANAGEMENT',
+      members: [
+        {
+          id: 'online-member-7',
+          name: 'DR. PRIMO B. ARANAS, JR.',
+          title: 'Associate Dean',
+          affiliation: 'Graduate School Siquijor State College',
+          image: '/images/panels/DR. PRIMO B. ARANAS, JR..jpg',
+        },
+        {
+          id: 'online-member-8',
+          name: 'DR. JUDE CHARREL B. PAEZ',
+          title: 'Associate Professor III',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. JUDE CHARREL B. PAEZ.png',
+        },
+        {
+          id: 'online-member-9',
+          name: 'DR. ANGEN MAY F. CHARCOS',
+          title: 'Associate Professor V',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. ANGEN MAY F. CHARC0S.jfif',
+        },
+      ],
+    },
+  ],
+
+  //product
+  product: [
+    {
+      id: 'product-cluster-1',
+      name: 'FOOD SECURITY AND AGRICULTURE',
+      members: [
+        {
+          id: 'product-member-1',
+          name: 'DR. REYNANT ANGELO PEREZ LEPITEN',
+          title: 'SOUS Chef',
+          affiliation: 'Durhan White Beach Resort',
+          image: '/images/panels/DR. REYNANT ANGELO PEREZ LEPITEN.jpg',
+        },
+        {
+          id: 'product-member-2',
+          name: 'MS. LESLIE CABILLO',
+          title: 'Faculty',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/MS. LESLIE D. CABILLO.jpg',
+        },
+        {
+          id: 'product-member-3',
+          name: 'DR. VICEL B. ALBAÑO',
+          title: 'Assistant Professor I',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. VICEL B. ALBAÑO.jpg',
+        },
+      ],
+    },
+    {
+      id: 'product-cluster-2',
+      name: 'ENGINEERING AND TECHNOLOGY INNOVATION',
+      members: [
+        {
+          id: 'product-member-4',
+          name: 'DR. ANALIZA B. CALLES',
+          title: 'Professor IV',
+          affiliation: 'Biliran Province State University',
+          image: '/images/panels/DR. ANALIZA B. CALLES.png',
+        },
+        {
+          id: 'product-member-5',
+          name: 'DR. JAMES PAUL TAMAYO',
+          title: 'Associate Professor IV',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. JAMES PAUL TAMAYO.jpg',
+        },
+        {
+          id: 'product-member-6',
+          name: 'ENGR. LEA MARIE P. RELAVO',
+          title: 'Instructor I',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/ENGR. LEA MARIE P. RELAVO.png',
+        },
+      ],
+    },
+    {
+      id: 'product-cluster-3',
+      name: 'EDUCATION, SOCIAL SCIENCE AND TOURISM MANAGEMENT',
+      members: [
+        {
+          id: 'product-member-7',
+          name: 'DR. LYNNETTE CAMELLO',
+          title: 'Professor II',
+          affiliation: 'Cebu Technological University',
+          image: '/images/panels/DR. LYNNETTE CAMELLO.jpg',
+        },
+        {
+          id: 'product-member-8',
+          name: 'DR. ADELIOSA G. MENCHAVEZ',
+          title: 'Associate Professor I',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/DR. ADELIOSA G. MENCHAVEZ.jpg',
+        },
+        {
+          id: 'product-member-9',
+          name: 'PROF. GENESIS PRESILLAS',
+          title: 'Assistant Professor II',
+          affiliation: 'Cebu Technological University - Tuburan Campus',
+          image: '/images/panels/GENESIS C. PRESILLAS - ASSISTANT PROFESSOR 2.jpg',
+        },
+      ],
+    },
+  ],
+};
+
+// Keep backward compat if anything still imports `clusters`
+export const clusters = clustersByType.online;

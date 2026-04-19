@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-primary text-primary-foreground py-12 md:py-16">
+    <footer className="w-full bg-primary text-primary-foreground py-12 md:py-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
@@ -26,6 +26,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/guideline#guideline" className="hover:underline transition-colors duration-200">
+                  Guideline
+                </a>
+              </li>
+              <li>
                 <a href="/speaker#speakers" className="hover:underline transition-colors duration-200">
                   Speakers
                 </a>
@@ -41,7 +46,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline transition-colors duration-200">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZGor6RM6emYG7QCrzRKQumL2O6KYy8t--qnaeyRyWdmRPbw/viewform" className="hover:underline transition-colors duration-200">
                   Evaluation
                 </a>
               </li>
@@ -59,12 +64,8 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <a href="mailto:fstlpctuburan@gmail.com" className="hover:underline transition-colors duration-200">
-                  fstlpctuburan@gmail.com
+                  fstlpctutuburan@gmail.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>(032) 555-1234</span>
               </li>
             </ul>
           </div>
@@ -76,6 +77,12 @@ export function Footer() {
             <p className="text-sm text-primary-foreground/80">
               © {currentYear} Cebu Technological University. All rights reserved.
             </p>
+            <div className="text-sm text-primary-foreground/80 text-center md:text-right">
+              <p>Developed by Renheart R. Alfanta</p>
+              <p>Multimedia Officer, FSTLP</p>
+              <p>alfantarabanes143@gmail.com</p>
+              <p>09943428659</p>
+            </div>
           </div>
         </div>
       </div>
