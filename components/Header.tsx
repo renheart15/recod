@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Speakers', href: '/speaker#speakers' },
   { label: 'Panels', href: '/panel#panels' },
+  { label: 'Exhibits', href: '/exhibit#research-exhibits' },
   { label: 'Program', href: '/program#program' },
   { label: 'Evaluation', href: '/notFound' },
 ];

@@ -21,18 +21,23 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#program" className="hover:underline transition-colors duration-200">
+                <a href="/program#program" className="hover:underline transition-colors duration-200">
                   Program
                 </a>
               </li>
               <li>
-                <a href="#speakers" className="hover:underline transition-colors duration-200">
+                <a href="/speaker#speakers" className="hover:underline transition-colors duration-200">
                   Speakers
                 </a>
               </li>
               <li>
-                <a href="#panels" className="hover:underline transition-colors duration-200">
+                <a href="/panel#panels" className="hover:underline transition-colors duration-200">
                   Panel Members
+                </a>
+              </li>
+              <li>
+                <a href="/exhibit#research-exhibits" className="hover:underline transition-colors duration-200">
+                  Exhibits
                 </a>
               </li>
               <li>
