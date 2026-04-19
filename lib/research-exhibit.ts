@@ -94,7 +94,7 @@ export interface ResearchExhibit {
       title: 'Assessing Smart Roadside Post for Real-Time Pedestrian Crossing Alerts and Distance Monitoring',
       author: 'Charish Jane Caminos',
       cluster: 'Cluster 2: Engineering and Technology Innovation',
-      image: '/images/research/pedstrian.jpg',
+      image: '/images/research/pedestrian.jpg',
     },
     {
       id: 'exhibit-16',
